@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "eurosat-landcover-cnn"
+version = "0.1.0"
+description = "Compact CNN for Sentinel-2 land use / land cover classification (EuroSAT)."
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [{name = "Pranav Achar"}]
+dependencies = ["torch>=2.0", "numpy>=1.23", "pillow>=9.0"]
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[project.scripts]
+eurosat-train = "eurosat_cnn.train:main"
+eurosat-predict = "eurosat_cnn.predict:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
